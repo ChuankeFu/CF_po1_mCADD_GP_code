@@ -1,0 +1,10 @@
+0
+/lustre/nobackup/WUR/ABGC/duenk002/folder/genotypes.txt
+genotypes
+1
+vanraden
+grm 0.05
+G ASReml
+print_giv=asc
+print_geno=no
+5

@@ -257,7 +257,7 @@ data_all_h2$trait <- factor(data_all$trait, levels = c("ltm1","bmd1","bw_10","ne
      
      p1 <- ggplot(snp_counts, aes(x = order, y = ori_snp_counts, fill = as.factor(chrom))) +
        geom_bar(stat = "identity", position = "dodge") +
-       labs(title = paste0("Distribution of the top ",i,"% of SNPs based on CADD-SNP"), x = "Chromosome", y = "Proportion of selected SNPs within a 5 Mb region (%)") +
+       labs(title = paste0("Distribution of the top ",i,"% of SNPs based on CADD-SNP"), x = "Chromosome", y = "Selected SNPs within a 5 Mb region (%)") +
        scale_x_continuous(breaks = chrom_labels$midpoint, labels = chrom_labels$chrom) +  # replace the axis.text.x with NO.chromosome
        scale_y_continuous(limits = c(0, 100),expand = c(0,0))+
        theme_classic() +
@@ -266,7 +266,7 @@ data_all_h2$trait <- factor(data_all$trait, levels = c("ltm1","bmd1","bw_10","ne
          axis.text.y = element_text(size = 40), 
          axis.ticks.x = element_blank(),  # 显示 X 轴刻度
          axis.title.x = element_text(size = 40),
-         axis.title.y = element_text(size = 36),
+         axis.title.y = element_text(size = 30),
          title = element_text(size = 34),
          legend.position = "none"  # 去掉图例（Legend）
        )
@@ -274,7 +274,7 @@ data_all_h2$trait <- factor(data_all$trait, levels = c("ltm1","bmd1","bw_10","ne
      
      p2 <- ggplot(snp_counts, aes(x = order, y = average_snp_counts, fill = as.factor(chrom))) +
        geom_bar(stat = "identity", position = "dodge") +
-       labs(title = paste0("Distribution of the top ",i,"% of SNPs based on CADD-window"), x = "Chromosome", y = "Proportion of selected SNPs within a 5 Mb region (%)") +
+       labs(title = paste0("Distribution of the top ",i,"% of SNPs based on CADD-window"), x = "Chromosome", y = "Selected SNPs within a 5 Mb region (%)") +
        scale_x_continuous(breaks = chrom_labels$midpoint, labels = chrom_labels$chrom) +  # 用染色体编号替换X轴
        scale_y_continuous(limits = c(0, 100),expand = c(0,0))+
        theme_classic() +
@@ -283,7 +283,7 @@ data_all_h2$trait <- factor(data_all$trait, levels = c("ltm1","bmd1","bw_10","ne
          axis.text.y = element_text(size = 40), 
          axis.ticks.x = element_blank(),  # 显示 X 轴刻度
          axis.title.x = element_text(size = 40),
-         axis.title.y = element_text(size = 36),
+         axis.title.y = element_text(size = 30),
          title = element_text(size = 34),
          legend.position = "none"  # 去掉图例（Legend）
        )
@@ -292,7 +292,7 @@ data_all_h2$trait <- factor(data_all$trait, levels = c("ltm1","bmd1","bw_10","ne
    }
    
    
-   pdf(paste0(output_path,"/barplot_selected_SNPs_with_the_region.pdf"), width =46, height = 50) 
+   pdf(paste0(output_path,"/barplot_selected_SNPs_within_the_region.pdf"), width =36, height = 32) 
    
    grid.arrange(p1_10,p2_10,p1_20,p2_20,p1_50,p2_50,p1_70,p2_70, ncol = 2)
    
